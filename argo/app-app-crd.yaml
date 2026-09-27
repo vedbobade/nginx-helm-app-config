@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-app
+  namespace: argocd
+spec: 
+  project: default
+  source: 
+    repoURL: https://github.com/vedbobade/nginx-helm-app-config.git
+    targetRevision: HEAD
+    path: app-helm
+    helm:
+      releaseName: nginx-app
+
+  destination: 
+    server: https://kubernetes.default.svc
+    namespace: nginx-app-ns
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+

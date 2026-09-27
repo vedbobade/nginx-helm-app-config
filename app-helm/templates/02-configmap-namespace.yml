@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: {{ .Release.Name }}-ConfigMap
+    namespace: {{ .Values.app.namespace }}
+data: 
+    index.html: |
+        <html>
+        <head>
+            <title> Dnynashri Chaudhari </title>
+        </head>
+        <body>
+            <h1> DNYNASHRI CHAUDHARI </h1>
+            <h2> hii what's going on ???? </h2>
+        </body>
+        </html>
+      
